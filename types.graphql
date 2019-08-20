@@ -1,0 +1,29 @@
+# The following types define the data model of the example service
+# based on which the GraphQL API is generated
+
+type User @model {
+  id: ID! @isUnique
+  firstName: String!
+  lastName: String!
+  fatherName: String!
+  motherName: String!
+  dateOfBirth: DateTime!
+  aadhar: String!
+  skills: [String!]! @defaultValue(value: null)
+  contactNumber: String! @defaultValue(value: null)
+  alternateContactNumber: String! @defaultValue(value: null)
+  posts: [Post!]! @relation(name: "UserPosts")
+  dateOfJoining: DateTime! 
+  designation: String! 
+}
+
+enum Role {
+  ADMIN
+  USER
+}
+
+type Post @model {
+  id: ID! @isUnique
+  title: String!
+  postedBy: User! @relation(name: "UserPosts")
+}

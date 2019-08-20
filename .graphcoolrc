@@ -1,0 +1,3 @@
+targets:
+  TestProject: shared-eu-west-1/cjz9unuln3a3l0160qlcltdig
+  default: TestProject
